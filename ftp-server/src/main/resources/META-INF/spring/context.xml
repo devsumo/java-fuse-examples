@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:ftp="http://mina.apache.org/ftpserver/spring/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd
+                        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<ftp:server id="ftpServer" anon-enabled="true">
+		<ftp:listeners>
+    		<ftp:nio-listener name="default" port="30021"/>
+		</ftp:listeners>
+	</ftp:server>
+	
+	<bean id="ftpServerManager" class="com.devsumo.examples.fuse.java.ftpserver.FtpServerManager">
+		<property name="ftpServer" ref="ftpServer"/>
+	</bean>
+</beans>
